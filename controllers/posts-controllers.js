@@ -14,6 +14,7 @@ async function postsController(req, res)
         return res.status(200).json(result.rows);
     } catch (error) {
         console.log("Errorrrrrrrrrrrr:: ", error);
+        client.release();
         return res.status(500).json({error: 'Internal Server Error'});
     }
 }
